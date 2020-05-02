@@ -136,7 +136,7 @@ const TripItem: React.FunctionComponent<ITripItemProps> = (props) => {
             <span className="bold">Price</span> : {_.get(props, "trip.price", "")} $
           </Typography>
           <Typography variant="overline" color="textSecondary" component="p" className="card-content__left">
-            <span className="bold">Start time</span> : {M(_.get(props, "trip.startTime", "")).format("HH:mm DD/MM/YYYY")}
+            <span className="bold">Start time</span> : {M(_.get(props, "trip.startTime", ""), "YYYY-MM-DDTHH:mm:ss").format("HH:mm DD/MM/YYYY")}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>

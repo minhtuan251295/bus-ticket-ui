@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import * as ITF from "../../interface/trip";
 import { connect } from "react-redux";
 import TripItem from './tripItem';
+import Grid from '@material-ui/core/Grid';
 
 interface ITripProps {
   trips: Array<ITF.Trip>
@@ -13,7 +14,11 @@ interface ITripProps {
 
 const Trip: React.FunctionComponent<ITripProps> = (props) => {
   const elmTrip = props.trips.map((trip: ITF.Trip) => {
-    return <TripItem key={trip._id} trip={trip} />
+    return (
+      <Grid item xs={6} key={trip._id}>
+        <TripItem trip={trip} />
+      </Grid>
+    )
   })
 
   return (
@@ -28,7 +33,10 @@ const Trip: React.FunctionComponent<ITripProps> = (props) => {
         </Typography>
       </div>
       <Container maxWidth="md">
-        {elmTrip}
+
+        <Grid container spacing={3}>
+          {elmTrip}
+        </Grid>
       </Container>
 
     </React.Fragment>
