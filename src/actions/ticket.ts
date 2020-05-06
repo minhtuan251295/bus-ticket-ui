@@ -26,6 +26,8 @@ export const bookTickets = (data: any) => {
           type: Types.BOOK_TICKETS,
           payload: data
         })
+
+        alert("Book successfully, please check your email")
       })
       .catch((err) => console.log(err))
   }
